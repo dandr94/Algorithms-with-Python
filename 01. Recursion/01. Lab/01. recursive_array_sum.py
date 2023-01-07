@@ -3,8 +3,10 @@ Write a program that finds the sum of all elements in an integer array.
 Use recursion.
 """
 
+from typing import List
 
-def calculate(nums, index):
+
+def calculate(nums: List[int], index: int) -> int:
     current_element = nums[index]
     last_element = len(nums) - 1
 
