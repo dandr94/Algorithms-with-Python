@@ -1,5 +1,18 @@
 """
 Write a program that draws the figure below depending on n.
+Example if n == 5:
+
+*****
+****
+***
+**
+*
+#
+##
+###
+####
+#####
+
 """
 
 
