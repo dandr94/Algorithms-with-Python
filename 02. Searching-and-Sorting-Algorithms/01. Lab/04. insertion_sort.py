@@ -3,8 +3,10 @@ Write an implementation of Insertion Sort.
 You should read an array of integers and sort them.
 """
 from typing import List
+from time_decorator import timing
 
 
+@timing
 def insertion_sort(nums: List[int]) -> List[int]:
     for i in range(1, len(nums)):
         for j in range(i, 0, - 1):
@@ -17,6 +19,7 @@ def insertion_sort(nums: List[int]) -> List[int]:
 
 
 numbers = [int(x) for x in input().split()]
+
 print(*insertion_sort(numbers), sep=' ')
 
 # Test solution at:
