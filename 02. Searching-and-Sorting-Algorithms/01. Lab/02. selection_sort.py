@@ -4,7 +4,10 @@ You should read an array of integers and sort them.
 """
 from typing import List
 
+from time_decorator import timing
 
+
+@timing
 def selection_sort(nums: List[int]) -> List[int]:
     for i in range(len(nums)):
         min_idx = i
