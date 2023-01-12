@@ -4,7 +4,7 @@ You should read an array of integers and sort them.
 """
 from typing import List
 
-from time_decorator import timing
+from helpers.time_decorator import timing
 
 
 @timing
