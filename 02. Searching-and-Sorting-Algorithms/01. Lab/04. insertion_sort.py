@@ -3,9 +3,7 @@ Write an implementation of Insertion Sort.
 You should read an array of integers and sort them.
 """
 from typing import List
-from time_decorator import timing
-
-
+from helpers.time_decorator import timing
 @timing
 def insertion_sort(nums: List[int]) -> List[int]:
     for i in range(1, len(nums)):
