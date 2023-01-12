@@ -5,7 +5,10 @@ You should read an array of integers and sort them.
 
 from typing import List
 
+from time_decorator import timing
 
+
+@timing
 def bubble_sort(nums: List[int]) -> List[int]:
     for i in range(len(nums)):
         for j in range(1, len(nums) - i):
