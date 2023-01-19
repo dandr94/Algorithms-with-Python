@@ -9,7 +9,7 @@ from collections import deque
 from typing import List, Union, Deque
 
 
-def build_graph(edges: int) -> List[List[int]]:
+def build_graph(nodes, edges: int) -> List[List[int]]:
     graph = [[] for _ in range(nodes + 1)]
 
     for _ in range(edges):
@@ -60,7 +60,7 @@ def reached_end(node: int, destination: int) -> bool:
 nodes = int(input())
 edges = int(input())
 
-graph = build_graph(edges)
+graph = build_graph(nodes, edges)
 
 start_node = int(input())
 destination_node = int(input())
