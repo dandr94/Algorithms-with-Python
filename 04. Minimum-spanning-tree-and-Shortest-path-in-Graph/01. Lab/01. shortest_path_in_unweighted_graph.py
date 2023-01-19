@@ -9,21 +9,45 @@ from collections import deque
 from typing import List, Union, Deque
 
 
-def bfs(node: int,
-        graph: List[List[int]],
-        visited: List[bool],
-        parent: List[Union[None, int]],
-        destination_node: int,
-        queue: Deque[int]) -> None:
+def build_graph(edges: int) -> List[List[int]]:
+    graph = [[] for _ in range(nodes + 1)]
 
-    if reached_end(node, destination_node):
-        return
+    for _ in range(edges):
+        source, destination = [int(x) for x in input().split()]
+        graph[source].append(destination)
 
-    for child in graph[node]:
-        if not visited[child]:
-            visited[child] = True
-            queue.append(child)
-            parent[child] = node
+    return graph
+
+
+def bfs(graph: List[List[int]],
+        start_node: int,
+        destination_node: int) -> List[Union[None, int]]:
+
+    visited = [False] * len(graph)
+    parent = [None for x in range(len(graph))]
+    visited[start_node] = True
+    queue = deque([start_node])
+
+    while queue:
+        node = queue.popleft()
+        if reached_end(node, destination_node):
+            return parent
+
+        for child in graph[node]:
+            if not visited[child]:
+                visited[child] = True
+                queue.append(child)
+                parent[child] = node
+
+
+def reconstruct_path(parent: int, destination_node: int) -> Deque[int]:
+    path = deque()
+    node = destination_node
+
+    while node:
+        path.appendleft(node)
+        node = parent[node]
+    return path
 
 
 def reached_end(node: int, destination: int) -> bool:
@@ -36,32 +60,13 @@ def reached_end(node: int, destination: int) -> bool:
 nodes = int(input())
 edges = int(input())
 
-graph = [[] for _ in range(nodes + 1)]
-
-for _ in range(edges):
-    source, destination = [int(x) for x in input().split()]
-    graph[source].append(destination)
+graph = build_graph(edges)
 
 start_node = int(input())
 destination_node = int(input())
 
-visited = [False] * (nodes + 1)
-parent = [None] * (nodes + 1)
-
-visited[start_node] = True
-queue = deque([start_node])
-
-while queue:
-    node = queue.popleft()
-
-    bfs(node, graph, visited, parent, destination_node, queue)
-
-path = deque()
-node = destination_node
-
-while node:
-    path.appendleft(node)
-    node = parent[node]
+parent = bfs(graph, start_node, destination_node)
+path = reconstruct_path(parent, destination_node)
 
 print(f'Shortest path length is: {len(path) - 1}')
 print(*path, sep=' ')
