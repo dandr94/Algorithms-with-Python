@@ -44,7 +44,7 @@ def bfs(graph: Dict[int, List[Edge]], start: int, end: int):
         min_distance, node = pq.get()
 
         if node == end:
-            return parent, distance
+            return print_results(distance, parent, end)
 
         for edge in graph[node]:
             new_distance = min_distance + edge.weight
@@ -54,7 +54,7 @@ def bfs(graph: Dict[int, List[Edge]], start: int, end: int):
                 parent[edge.destination] = node
                 pq.put((new_distance, edge.destination))
 
-    return parent, distance
+    return print_results(distance, parent, end)
 
 
 def reconstruct_path(parent: List[Union[None, int]], end: int) -> Deque[int]:
@@ -87,9 +87,8 @@ graph = build_graph(edges)
 start = int(input())
 end = int(input())
 
-parent, distance = bfs(graph, start, end)
+bfs(graph, start, end)
 
-print_results(distance, parent, end)
 
 # Test solution at:
 # https://judge.softuni.org/Contests/Practice/Index/3464#1
