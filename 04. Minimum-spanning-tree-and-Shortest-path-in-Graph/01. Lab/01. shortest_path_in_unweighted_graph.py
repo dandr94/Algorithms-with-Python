@@ -73,3 +73,5 @@ print(*path, sep=' ')
 
 # Test solution at:
 # https://judge.softuni.org/Contests/Practice/Index/3464#0
+
+
