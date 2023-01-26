@@ -7,7 +7,6 @@ We are only allowed to modify s1, s2 always stays unchanged. Each of the three o
 Note: the cost of the replace(i, x) operation is 0 if it does not change the character.
 The goal is to find the sequence of operations which will produce s2 from s1 with minimal cost.
 """
-import pprint
 
 
 def minimum_edit_distance(s1: str, s2: str) -> int:
