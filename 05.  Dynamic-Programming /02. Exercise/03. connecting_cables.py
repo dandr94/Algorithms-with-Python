@@ -19,7 +19,7 @@ def connecting_cables(cables: List[int]) -> int:
 
     for row in range(1, size):
         for col in range(1, size):
-            dp[row][col] = dp[row][col] = dp[row - 1][col - 1] + 1 if cables[row - 1] == positions[col - 1] else max(
+            dp[row][col] = dp[row - 1][col - 1] + 1 if cables[row - 1] == positions[col - 1] else max(
                 dp[row - 1][col], dp[row][col - 1])
 
     return dp[size - 1][-1]
