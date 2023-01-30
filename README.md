@@ -3,4 +3,4 @@
     <img src="banner.png">
 </div>
 
-## Free course provided by <a src="https://softuni.bg/">SoftUni</a> you can visit it <a src="https://softuni.bg/trainings/3817/algorithms-with-python-july-2022">HERE</a>.
+## Free course provided by [SoftUni](https://softuni.bg/) you can visit it [HERE](https://softuni.bg/trainings/3817/algorithms-with-python-july-2022).
